@@ -1,0 +1,58 @@
+{
+    "name": "root/backend",
+    "description": "an API for sales and taxes of a marketplace",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "App\\Domain\\": "src/Domain/",
+            "App\\Application\\": "src/Application/",
+            "App\\Application\\UseCases\\": "src/Application/UseCases",
+            "App\\Infrastructure\\": "src/Infrastructure/",
+            "App\\Infrastructure\\Exceptions\\": "src/Infrastructure/Exceptions/",
+            "App\\Infrastructure\\Persistence\\": "src/Infrastructure/Persistence/",
+            "App\\Infrastructure\\Web\\": "src/Infrastructure/Web/",
+            "App\\Drivers\\": "src/Drivers/",
+            "Tests\\": "tests/",
+            "Tests\\Integration\\": "tests/integration/",
+            "Tests\\Units\\": "tests/units/"
+        },
+        "files": [
+            "helper/helper.php"
+        ]
+
+    },
+    "require": {
+        "ext-pdo": "*",
+        "slim/slim": "^4.14",
+        "php-di/php-di": "^7.0",
+        "psr/http-message": "^2.0",
+        "psr/container": "^2.0",
+        "vlucas/phpdotenv": "^5.6",
+        "slim/psr7": "^1.7",
+        "doctrine/migrations": "^3.8",
+        "symfony/http-foundation": "^7.1",
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "scripts": {
+        "test": "phpunit --testsuite units --testdox",
+        "test-integration": "phpunit --testsuite integration --testdox",
+        "test-coverage-html": "phpunit --coverage-html storage/coverage/",
+        "test-coverage": "phpunit --coverage-text",
+        "phpstan": "phpstan analyse -c phpstan.neon",
+        "phpcs": "phpcs  --standard=./.phpcs.xml",
+        "phpcbf": "phpcbf",
+        "mess": "phpmd ./src text phpmd.xml",
+        "migrations": "doctrine-migrations migrate",
+        "migrations-generate": "doctrine-migrations generate",
+        "migrations-test": "doctrine-migrations migrate --dry-run"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.2",
+        "phpstan/phpstan": "^1.11",
+        "phpmd/phpmd": "^2.15",
+        "squizlabs/php_codesniffer": "^3.11",
+        "friendsofphp/php-cs-fixer": "^3.65"
+    }
+}

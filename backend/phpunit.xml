@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.2/phpunit.xsd" 
+          bootstrap="vendor/autoload.php"
+          failOnRisky="true" failOnWarning="true"
+          colors="true" 
+          cacheDirectory="./storage/logs/phpunit.cache"
+          displayDetailsOnTestsThatTriggerDeprecations="true"
+          displayDetailsOnTestsThatTriggerErrors="true"
+          displayDetailsOnTestsThatTriggerWarnings="true"
+          beStrictAboutOutputDuringTests="true">
+  <testsuites>
+    <testsuite name="units">
+      <directory suffix="Test.php">./tests/units</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory suffix="Test.php">./tests/integration</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <env name="APP_ENV" value="testing"/>
+    <env name="DISPLAY_ERROR_DETAILS" value="true"/>
+    <env name="LOG_ERRORS" value="true"/>
+    <env name="LOG_ERROR_DETAILS" value="true"/>
+    <env name="TEST_DB_CONNECTION" value="sqlite"/>
+    <env name="TEST_DB_MEMORY" value=":memory:"/>
+  </php>
+  <logging>
+    <junit outputFile="./storage/logs/junit.xml"/>
+    <teamcity outputFile="./storage/logs/teamcity.txt"/>
+    <testdoxHtml outputFile="./storage/logs/testdox.html"/>
+    <testdoxText outputFile="./storage/logs/testdox.txt"/>
+  </logging>
+  <source>
+    <include>
+      <directory>src</directory>
+    </include>
+  </source>
+</phpunit>

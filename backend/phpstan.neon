@@ -1,0 +1,19 @@
+parameters:
+    level: 9
+    paths:
+        - src
+        - helper
+
+    excludePaths:
+        - vendor/
+        - node_modules/
+        - tests/*/data/
+        - tests/*/fixtures/
+    
+    treatPhpDocTypesAsCertain: false
+    reportMaybesInPropertyPhpDocTypes: false
+    reportMaybesInMethodSignatures: false
+    reportAnyTypeWideningInVarTag: false
+    checkFunctionNameCase: false
+    checkInternalClassCaseSensitivity: false
+    reportWrongPhpDocTypeInVarTag: false
